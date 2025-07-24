@@ -1,0 +1,187 @@
+:root {
+	--cursor-size: 24px;
+	--background: #f2f2f2;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+
+/* Gradient Animation */
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.gradient-bg {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+}
+
+/* Text Animation */
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInScale {
+	0% {
+		opacity: 0;
+		transform: scale(0.9) translateY(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+
+.animate-fade-in-up {
+	animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-scale {
+	animation: fadeInScale 0.6s ease-out forwards;
+}
+
+.animation-delay-200 {
+	animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+	animation-delay: 0.4s;
+}
+
+.animation-delay-600 {
+	animation-delay: 0.6s;
+}
+
+/* Initially hidden for animation */
+.animate-on-load {
+	opacity: 0;
+}
+
+/* Smooth typewriter animations */
+.typewriter-text {
+	display: inline-block;
+	min-width: 0;
+	transform-origin: left center;
+}
+
+.typewriter-cursor {
+	display: inline-block;
+	font-weight: 300;
+	color: #a855f7;
+}
+
+@keyframes smoothType {
+	0% {
+		opacity: 0;
+		transform: scale(0.95) translateX(-2px);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1) translateX(0);
+	}
+}
+
+.typewriter-text::after {
+	content: '';
+	animation: smoothType 0.1s ease-out;
+}
+
+/* Smooth character reveal */
+.char-reveal {
+	display: inline-block;
+	opacity: 0;
+	animation: charReveal 0.15s ease-out forwards;
+}
+
+@keyframes charReveal {
+	0% {
+		opacity: 0;
+		transform: translateY(10px) scale(0.8);
+	}
+	50% {
+		opacity: 0.7;
+		transform: translateY(-2px) scale(1.05);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+/* Scroll sections styling */
+.scroll-container {
+	position: relative;
+}
+
+.horizontal-container {
+	overflow: hidden;
+}
+
+.horizontal-scroll {
+	will-change: transform;
+}
+
+.horizontal-section {
+	flex-shrink: 0;
+}
+
+/* Essential cursor and hover functionality */
+[data-hover] {
+	position: relative;
+}
+
+[data-hover] [data-hover-bounds] {
+	position: absolute;
+	left: 0;
+	top: 0;
+	inset: 0;
+}
+
+[data-hover]:hover [data-hover-bounds] {
+	transform: scale(4);
+}
+
+.cursor {
+	width: var(--cursor-size);
+	height: var(--cursor-size);
+	border-radius: 50%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	transform: translate(-50%, -50%);
+	background: var(--background);
+	mix-blend-mode: difference;
+	pointer-events: none;
+}
+
+.cta {
+	width: 100px;
+	position: fixed;
+	top: -999px;
+	left: -999px;
+	pointer-events: none;
+}
